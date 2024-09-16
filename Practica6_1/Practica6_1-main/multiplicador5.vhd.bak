@@ -1,0 +1,15 @@
+library ieee;
+use ieee.std_logic.all;
+use ieee.numeric_std.all;
+
+entity multiplicador5 is
+	generic(
+	gn : integer := 5);
+	port(
+	a : in std_logic_vector(gn-1 downto 0);
+	b : in std_logic_vector(gn-1 downto 0);
+	p : out std_logic_vector(gn*2-1 downto 0));
+end multiplicador5;
+
+architecture behavioral of multiplicador5 is
+	

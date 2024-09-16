@@ -1,0 +1,33 @@
+library ieee;
+use ieee.std_logic.all;
+use ieee.numeric_std.all;
+
+
+entity multi is
+	generic(
+	gen : integer :=5);
+	port(
+	a : in std_logic_vector(gen-1 downto 0);
+	b : in std_logic_vector(gen-1 downto 0);
+	d_0 : out std_logic_vector(gen+1 downto 0);
+	d_1 : out std_logic_vector(gen+1 downto 0);
+	d_2 : out std_logic_vector(gen+1 downto 0));
+end multi;
+
+architecture structural of multi is
+	signal pw : std_logic_vector(2*gn-1 downto 0);
+	
+	component multiplicador5
+	port(
+	a : in std_logic_vector(4 downto 0);
+	b : in std_logic_vector(4 downto 0);
+	p : out std_logic_vector(9 downto 0));
+	end component;
+	
+	component BinA7Seg
+	port(
+		E			:in std_logic_vector(3 downto 0);
+		salida	:out std_logic_vector(6 downto 0));
+	end component;
+	
+begin
